@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #eee;
+}
+
+nav {
+  height: 10vh;
+  background: white;
+  text-align: center;
+}
+
+nav .logo {
+  height: 100%;
+}
+
+.intro {
+  height: 50vh;
+  background-image: url("bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.intro .container {
+  color: #ed1d24;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  height: 50vh;
+  background: rgba(0, 0, 0, 0.66);
+}
