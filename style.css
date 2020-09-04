@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -34,5 +36,58 @@ nav .logo {
   justify-content: center;
   margin: 0 auto;
   height: 50vh;
-  background: rgba(0, 0, 0, 0.66);
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+}
+
+.intro .container h1 {
+  font-size: 50px;
+  font-family: "Bebas Neue", cursive;
+  color: #ed1d24;
+}
+.intro .container p {
+  font-size: 25px;
+  font-family: "Bebas Neue", cursive;
+}
+
+input[type="text"] {
+  outline: none;
+  opacity: 0.9;
+  background: transparent;
+  padding: 10px 10px;
+  border: 2px solid rgba(237, 29, 36, 0.75);
+  border-radius: 10px;
+  font-family: "Bebas Neue", cursive;
+  font-size: 25px;
+  color: #ed1d24;
+  color: white;
+  text-align: center;
+}
+
+#searchbar::placeholder {
+  font-family: "Bebas Neue", cursive;
+  font-size: 25px;
+  display: flex;
+  text-align: center;
+  color: #ed1d24;
+  /* color: white; */
+}
+
+#output {
+  margin-top: 10%;
+  display: grid;
+  grid-template-columns: 30% 30%;
+  column-gap: 10%;
+  row-gap: 10%;
+  justify-items: center;
+  align-items: center;
+}
+
+.character {
+  background: #ed1d24;
+  color: white;
+}
+
+.character:hover {
+  opacity: 0.9;
 }
