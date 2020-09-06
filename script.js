@@ -18,88 +18,81 @@ const apiUrls = [
 
 let data = [];
 
+// const searchBar = document.querySelector("#searchbar");
+// searchBar.addEventListener("keyup", (e) => {
+//   const searchString = e.target.value.toLowerCase();
+//   const filter = data.data.results.filter((character) =>
+//     character.name.toLowerCase().includes(searchString)
+//   );
+//   displayData(filter);
+//   console.log(filter);
+// });
+
 async function getData() {
   const response = await Promise.all(apiUrls.map((url) => fetch(url)));
   data = await Promise.all(response.map((res) => res.json()));
   console.log(data);
-  // for (part of data) {
-  //   const character = part.data.results;
-  //   console.log(character);
-  //   for (part of character) {
-  //     const name = part.name;
-  //     console.log(name);
-  //   }
-  // }
-  for (item of data) {
-    const part = item.data.results;
-    console.log(part);
-    // displayData(data);
-    for (character of part) {
-      const displayData = (data) => {
-        document.getElementById("output").innerHTML += `
-          <div class="character">
-            <h1>${character.name}</h1>
-            <a href="${character.urls[0].url}" target="_blank">
-              <img src="${character.thumbnail.path}.${character.thumbnail.extension}" alt="${character.name}" height="100" class="image" />
-            </a>
-          </div>
-      `;
-      };
 
-      const searchBar = document.querySelector("#searchbar");
-      searchBar.addEventListener("keyup", (e) => {
-        const searchString = e.target.value.toLowerCase();
-        const filter = data.filter((character) =>
-          character.name.toLowerCase().includes(searchString)
-        );
-        displayData(filter);
-        //     document.getElementById("output").innerHTML += `
-        //     <div class="character">
-        //       <h1>${character.name}</h1>
-        //       <a href="${character.urls[0].url}" target="_blank">
-        //         <img src="${character.thumbnail.path}.${character.thumbnail.extension}" alt="${character.name}" height="100" class="image" />
-        //       </a>
-        //     </div>
-        // `;
-      });
+  for (part of data) {
+    const characters = part.data.results;
+    console.log(characters);
+
+    for (character of characters) {
+      document.getElementById("output").innerHTML += `
+            <div class="character">
+              <h1>${character.name}</h1>
+              <a href="${character.urls[0].url}" target="_blank">
+                <img src="${character.thumbnail.path}.${character.thumbnail.extension}" alt="${character.name}" height="100" class="image" />
+              </a>
+            </div>
+        `;
     }
   }
 }
-// const displayData = (data) => {
-//   document.getElementById("output").innerHTML = `${character
-//     .map(
-//       (hero) =>
-//         `
-//   <h1>${hero.name}</h1>
-//   <a href="${hero.urls[0].url}" target="_blank">
-//   <img src="${hero.thumbnail.path}.${hero.thumbnail.extension}" alt="${hero.name}" height='100' class='image' />
-//   </a>
-//   `
-//     )
-//     .join("")}`;
-// output.innerHTML = content;
+
+// const displayData = (characters) => {
+//   let filteredHTML = "";
+//   for (character of characters) {
+//     filteredHTML += `
+//       <div class="character">
+//       <h1>${character.name}</h1>
+//       <a href="${character.urls[0].url}" target="_blank">
+//         <img src="${character.thumbnail.path}.${character.thumbnail.extension}" alt="${character.name}" height="100" class="image" />
+//       </a>
+//     </div>
+//     `;
+//   }
+//   document.getElementById("output").innerHTML = filteredHTML;
 // };
+
+//   const searchBar = document.querySelector("#searchbar");
+//   searchBar.addEventListener("keyup", (e) => {
+//     const searchString = e.target.value.toLowerCase();
+//     const heroes = data.data.results;
+//     console.log(heroes);
+//     const filter = heroes.filter((character) =>
+//       character.name.toLowerCase().includes(searchString)
+//     );
+//     displayData(filter);
+//     console.log(filter);
+//   });
+// }
 
 getData();
 
-// const displayData = (data) => {
-//   document.getElementById("output").innerHTML += `
+// const displayData = (characters) => {
+//   let filteredHTML = "";
+//   for (character of characters) {
+//     filteredHTML += `
 //       <div class="character">
-//         <h1>${character.name}</h1>
-//         <a href="${character.urls[0].url}" target="_blank">
-//           <img src="${character.thumbnail.path}.${character.thumbnail.extension}" alt="${character.name}" height="100" class="image" />
-//         </a>
-//       </div>
-//   `;
-// };
-
-// const searchBar = document.querySelector("#searchbar");
-// searchBar.addEventListener("keyup", (e) => {
-//   const searchString = e.target.value.toLowerCase();
-//   const filter = data.filter((character) =>
-//     character.name.toLowerCase().includes(searchString)
-//   );
-//   displayData(filter);
+//       <h1>${character.name}</h1>
+//       <a href="${character.urls[0].url}" target="_blank">
+//         <img src="${character.thumbnail.path}.${character.thumbnail.extension}" alt="${character.name}" height="100" class="image" />
+//       </a>
+//     </div>
+//     `;
+//   }
+//   document.getElementById("output").innerHTML = filteredHTML;
 // };
 
 const heroes = ["Spider-Man", "Iron Man", "Hulk", "Thor", "Captain America"];
