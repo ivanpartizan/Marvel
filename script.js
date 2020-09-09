@@ -18,15 +18,15 @@ const apiUrls = [
 
 let data = [];
 
-// const searchBar = document.querySelector("#searchbar");
-// searchBar.addEventListener("keyup", (e) => {
-//   const searchString = e.target.value.toLowerCase();
-//   const filter = data.data.results.filter((character) =>
-//     character.name.toLowerCase().includes(searchString)
-//   );
-//   displayData(filter);
-//   console.log(filter);
-// });
+const searchBar = document.querySelector("#searchbar");
+searchBar.addEventListener("keyup", (e) => {
+  const searchString = e.target.value.toLowerCase();
+  const filter = data
+    .forEach((part) => part.data.results)
+    .filter((character) => character.name.toLowerCase().includes(searchString));
+
+  console.log(filter);
+});
 
 async function getData() {
   const response = await Promise.all(apiUrls.map((url) => fetch(url)));
@@ -50,50 +50,7 @@ async function getData() {
   }
 }
 
-// const displayData = (characters) => {
-//   let filteredHTML = "";
-//   for (character of characters) {
-//     filteredHTML += `
-//       <div class="character">
-//       <h1>${character.name}</h1>
-//       <a href="${character.urls[0].url}" target="_blank">
-//         <img src="${character.thumbnail.path}.${character.thumbnail.extension}" alt="${character.name}" height="100" class="image" />
-//       </a>
-//     </div>
-//     `;
-//   }
-//   document.getElementById("output").innerHTML = filteredHTML;
-// };
-
-//   const searchBar = document.querySelector("#searchbar");
-//   searchBar.addEventListener("keyup", (e) => {
-//     const searchString = e.target.value.toLowerCase();
-//     const heroes = data.data.results;
-//     console.log(heroes);
-//     const filter = heroes.filter((character) =>
-//       character.name.toLowerCase().includes(searchString)
-//     );
-//     displayData(filter);
-//     console.log(filter);
-//   });
-// }
-
 getData();
-
-// const displayData = (characters) => {
-//   let filteredHTML = "";
-//   for (character of characters) {
-//     filteredHTML += `
-//       <div class="character">
-//       <h1>${character.name}</h1>
-//       <a href="${character.urls[0].url}" target="_blank">
-//         <img src="${character.thumbnail.path}.${character.thumbnail.extension}" alt="${character.name}" height="100" class="image" />
-//       </a>
-//     </div>
-//     `;
-//   }
-//   document.getElementById("output").innerHTML = filteredHTML;
-// };
 
 const heroes = ["Spider-Man", "Iron Man", "Hulk", "Thor", "Captain America"];
 let hero = 0;
