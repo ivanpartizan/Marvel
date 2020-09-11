@@ -21,10 +21,9 @@ let data = [];
 const searchBar = document.querySelector("#searchbar");
 searchBar.addEventListener("keyup", (e) => {
   const searchString = e.target.value.toLowerCase();
-  const filter = data
-    .forEach((part) => part.data.results)
-    .filter((character) => character.name.toLowerCase().includes(searchString));
-
+  const filter = data.forEach((part) => part.data.results[0].name);
+  //   .filter((character) => character.name.toLowerCase().includes(searchString));
+  // console.log(searchString);
   console.log(filter);
 });
 
